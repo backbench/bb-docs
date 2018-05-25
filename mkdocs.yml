@@ -1,0 +1,25 @@
+site_name: Backbench Developer Docs
+site_description: Faas Providers
+site_author: backbench
+site_url: https://docs.backbench.io
+pages:
+- Home: index.md
+- Docs: 
+  - Using Node: using-node.md
+  - Using Memory: memory-usage.md
+theme:
+  name: null
+  include_search_page: false
+  search_index_only: true
+  custom_dir: 'mkdocs-material/material'
+  language: 'en'
+  palette:
+    primary: blue
+    accent: indigo
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  favicon: ./screenshot.png
+  logo: ./screenshot.png
+  feature:
+    tabs: false
