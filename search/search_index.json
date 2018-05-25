@@ -1,6 +1,11 @@
 {
     "docs": [
         {
+            "location": "/", 
+            "text": "Guide for backbench.\n\n\nLinks :\n\n\n\n\nUsing node on backbench\n\n\nUsing memory on backbench", 
+            "title": "Home"
+        }, 
+        {
             "location": "/using-node/", 
             "text": "This section deals with using \nNodeJS\n on backebench.\n\n\nTo map a module to an endpoint, you need to make it as a public function, to make it same use the following conventions:\n\n\nDeclaration\n\n\nFollows this basic format.\n\n\nmodule.exports.endpoint = function(req, cb){\n...\n}\n\n\n\n\n\nreq (the request object)\n\n\nHas following fields.\n\n\n{  \n    \nmethod\n: \n,  \n    \npath\n: \n,  \n    \nbody\n: {},  \n    \nheaders\n: {},\n    \nquery\n: {} \n}\n\n\n\n\ncb (callback function)\n\n\nThis is to be used to send \nhttp response\n. Follows the format as: \n\n\ncb(Object error, Object results);\n\n\n\n\nConvention:\n 1st argument is used to send \nerror\n response, while second one to send \nsuccess\n response. \n\nNote:\n arguments must be \njson\n (otherwise it will throw an error and you'll get a blank response).\n\n\nRestriction\n\n\n\n\nResponse format for \ncb\n must be json.\n\n\nCannot use single inverted commas anywhere in the code.\n\n\nModule name cannot be \nfunc.js\n.\n\n\n\n\nDebugging\n\n\nError can be seen here.\n\n\nLogging\n\n\nLogging can be done using \nconsole.log()\n, which can be seen in \nLogs section\n.\n\n\nVersion\n\n\nCurrently supports \nNode 5.10.1\n.\n\n\nExample\n\n\nWe'll write a program using the conventions followed above, here we will print the request object.   \n\n\nIn module section, create a module (say \nsample.js\n) and paste the following code and hit save. \n\n\nmodule.exports.endpoint = function(req, callback){\n    console.log(\nRequest started processing at \n+ (new Date()))\n    callback(undefined, req)\n    console.log(\nRequest finished processing at \n+ (new Date()))\n}\n\n\n\n\nIn endpoint section, create a new endpoint with Path (say \n/sample\n) and select Handler as module's name (sample).\n\n\nDone, now run the program at \nhttps://USERNAME-BENCHID.beta-bench.backbench.io/", 
             "title": "Using Node"
