@@ -342,20 +342,20 @@
                 <p>This section deals with using memory in backbench.</p>
 <p>To use our memory, you need to send a <code>POST</code> request to endpoint <a href="https://memory.backbench.io">https://memory.backbench.io</a>.</p>
 <p>The request body/payload has the following format:</p>
-<pre><code class="json">{
-    &quot;cmd&quot;: &quot;&quot;,
-    &quot;auth&quot;: {
-        &quot;benchId&quot;: &quot;&quot;,
-        &quot;userId&quot;: &quot;&quot;,
-        &quot;accessKey&quot;: &quot;&quot;
-    },
-    &quot;args&quot;: {
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;auth&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;benchId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;userId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;accessKey&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;args&quot;</span><span class="p">:</span> <span class="p">{</span>
 
-    },
-    &quot;json&quot;: true
-}
+    <span class="p">},</span>
+    <span class="nt">&quot;json&quot;</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</pre></div>
 
-</code></pre>
 
 <p>These parameters values differs based on operations. </p>
 <p><strong>CMD</strong> is basically operation name.</p>
@@ -363,34 +363,37 @@
 <p><strong>ARGS</strong> is based on operations to perform.</p>
 <p>Following operations possible for the API</p>
 <h4 id="setting-memory">Setting Memory</h4>
-<pre><code>cmd : bb:mem:set 
+<div class="codehilite"><pre><span></span>cmd : bb:mem:set 
 args: {key: &quot;&quot;, value : &quot;&quot;}
-</code></pre>
+</pre></div>
+
 
 <h4 id="getting-memory">Getting Memory</h4>
-<pre><code>cmd : bb:mem:get
+<div class="codehilite"><pre><span></span>cmd : bb:mem:get
 args: {key: &quot;&quot;}
-</code></pre>
+</pre></div>
+
 
 <h4 id="deleting-memory">Deleting Memory</h4>
-<pre><code>cmd : bb:mem:del
+<div class="codehilite"><pre><span></span>cmd : bb:mem:del
 args: {key: &quot;&quot;}
-</code></pre>
+</pre></div>
+
 
 <p>An example payload for setting up memory in backbench.</p>
-<pre><code class="json">{
-    &quot;cmd&quot;: &quot;bb:mem:set&quot;,
-        &quot;auth&quot;: {
-            &quot;benchId&quot;: &quot;aaaaa0&quot;,
-            &quot;userId&quot;: &quot;mybench&quot;,
-            &quot;accessKey&quot;: &quot;c72d2f3a91b80c1e7fb46f4332383795facd8e99df31b689513c2fa11a699adb&quot;
-        },
-        &quot;args&quot;: {
-        &quot;key&quot;: &quot;jlo&quot;,
-        &quot;value&quot;: &quot;one the floor&quot;
-    }
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="s2">&quot;bb:mem:set&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;auth&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;benchId&quot;</span><span class="p">:</span> <span class="s2">&quot;aaaaa0&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;userId&quot;</span><span class="p">:</span> <span class="s2">&quot;mybench&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;accessKey&quot;</span><span class="p">:</span> <span class="s2">&quot;c72d2f3a91b80c1e7fb46f4332383795facd8e99df31b689513c2fa11a699adb&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;args&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;jlo&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;one the floor&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
                 
                   
                 
