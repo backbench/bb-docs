@@ -1,0 +1,74 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Guide for backbench.\n\n\nLinks :\n\n\n\n\nUsing node on backbench\n\n\nUsing memory on backbench", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/using-node/", 
+            "text": "This section deals with using \nNodeJS\n on backebench.\n\n\nTo map a module to an endpoint, you need to make it as a public function, to make it same use the following conventions:\n\n\nDeclaration\n\n\nFollows this basic format.\n\n\nmodule.exports.endpoint = function(req, cb){\n...\n}\n\n\n\n\n\nreq (the request object)\n\n\nHas following fields.\n\n\n{  \n    \nmethod\n: \n,  \n    \npath\n: \n,  \n    \nbody\n: {},  \n    \nheaders\n: {},\n    \nquery\n: {} \n}\n\n\n\n\ncb (callback function)\n\n\nThis is to be used to send \nhttp response\n. Follows the format as: \n\n\ncb(Object error, Object results);\n\n\n\n\nConvention:\n 1st argument is used to send \nerror\n response, while second one to send \nsuccess\n response. \n\nNote:\n arguments must be \njson\n (otherwise it will throw an error and you'll get a blank response).\n\n\nRestriction\n\n\n\n\nResponse format for \ncb\n must be json.\n\n\nCannot use single inverted commas anywhere in the code.\n\n\nModule name cannot be \nfunc.js\n.\n\n\n\n\nDebugging\n\n\nError can be seen here.\n\n\nLogging\n\n\nLogging can be done using \nconsole.log()\n, which can be seen in \nLogs section\n.\n\n\nVersion\n\n\nCurrently supports \nNode 5.10.1\n.\n\n\nExample\n\n\nWe'll write a program using the conventions followed above, here we will print the request object.   \n\n\nIn module section, create a module (say \nsample.js\n) and paste the following code and hit save. \n\n\nmodule.exports.endpoint = function(req, callback){\n    console.log(\nRequest started processing at \n+ (new Date()))\n    callback(undefined, req)\n    console.log(\nRequest finished processing at \n+ (new Date()))\n}\n\n\n\n\nIn endpoint section, create a new endpoint with Path (say \n/sample\n) and select Handler as module's name (sample).\n\n\nDone, now run the program at \nhttps://USERNAME-BENCHID.beta-bench.backbench.io/", 
+            "title": "Using Node"
+        }, 
+        {
+            "location": "/using-node/#declaration", 
+            "text": "Follows this basic format.  module.exports.endpoint = function(req, cb){\n...\n}", 
+            "title": "Declaration"
+        }, 
+        {
+            "location": "/using-node/#req-the-request-object", 
+            "text": "Has following fields.  {  \n     method :  ,  \n     path :  ,  \n     body : {},  \n     headers : {},\n     query : {} \n}", 
+            "title": "req (the request object)"
+        }, 
+        {
+            "location": "/using-node/#cb-callback-function", 
+            "text": "This is to be used to send  http response . Follows the format as:   cb(Object error, Object results);  Convention:  1st argument is used to send  error  response, while second one to send  success  response.  Note:  arguments must be  json  (otherwise it will throw an error and you'll get a blank response).", 
+            "title": "cb (callback function)"
+        }, 
+        {
+            "location": "/using-node/#restriction", 
+            "text": "Response format for  cb  must be json.  Cannot use single inverted commas anywhere in the code.  Module name cannot be  func.js .", 
+            "title": "Restriction"
+        }, 
+        {
+            "location": "/using-node/#debugging", 
+            "text": "Error can be seen here.", 
+            "title": "Debugging"
+        }, 
+        {
+            "location": "/using-node/#logging", 
+            "text": "Logging can be done using  console.log() , which can be seen in  Logs section .", 
+            "title": "Logging"
+        }, 
+        {
+            "location": "/using-node/#version", 
+            "text": "Currently supports  Node 5.10.1 .", 
+            "title": "Version"
+        }, 
+        {
+            "location": "/using-node/#example", 
+            "text": "We'll write a program using the conventions followed above, here we will print the request object.     In module section, create a module (say  sample.js ) and paste the following code and hit save.   module.exports.endpoint = function(req, callback){\n    console.log( Request started processing at  + (new Date()))\n    callback(undefined, req)\n    console.log( Request finished processing at  + (new Date()))\n}  In endpoint section, create a new endpoint with Path (say  /sample ) and select Handler as module's name (sample).  Done, now run the program at  https://USERNAME-BENCHID.beta-bench.backbench.io/", 
+            "title": "Example"
+        }, 
+        {
+            "location": "/memory-usage/", 
+            "text": "This section deals with using memory in backbench.\n\n\nTo use our memory, you need to send a \nPOST\n request to endpoint \nhttps://memory.backbench.io\n.\n\n\nThe request body/payload has the following format:\n\n\n{\n    \ncmd\n: \n,\n    \nauth\n: {\n        \nbenchId\n: \n,\n        \nuserId\n: \n,\n        \naccessKey\n: \n\n    },\n    \nargs\n: {\n\n    },\n    \njson\n: true\n}\n\n\n\n\n\nThese parameters values differs based on operations. \n\n\nCMD\n is basically operation name.\n\n\nAUTH\n is for authentication for API. Has 3 mandatory properties \nbenchId, userId, accessKey\n (accessKey can be found in dropdown of bench). These all properties are \nconstant\n for a bench.  \n\n\nARGS\n is based on operations to perform.\n\n\nFollowing operations possible for the API\n\n\nSetting Memory\n\n\ncmd : bb:mem:set \nargs: {key: \n, value : \n}\n\n\n\n\nGetting Memory\n\n\ncmd : bb:mem:get\nargs: {key: \n}\n\n\n\n\nDeleting Memory\n\n\ncmd : bb:mem:del\nargs: {key: \n}\n\n\n\n\nAn example payload for setting up memory in backbench.\n\n\n{\n    \ncmd\n: \nbb:mem:set\n,\n        \nauth\n: {\n            \nbenchId\n: \naaaaa0\n,\n            \nuserId\n: \nmybench\n,\n            \naccessKey\n: \nc72d2f3a91b80c1e7fb46f4332383795facd8e99df31b689513c2fa11a699adb\n\n        },\n        \nargs\n: {\n        \nkey\n: \njlo\n,\n        \nvalue\n: \none the floor\n\n    }\n}", 
+            "title": "Using Memory"
+        }, 
+        {
+            "location": "/memory-usage/#setting-memory", 
+            "text": "cmd : bb:mem:set \nargs: {key:  , value :  }", 
+            "title": "Setting Memory"
+        }, 
+        {
+            "location": "/memory-usage/#getting-memory", 
+            "text": "cmd : bb:mem:get\nargs: {key:  }", 
+            "title": "Getting Memory"
+        }, 
+        {
+            "location": "/memory-usage/#deleting-memory", 
+            "text": "cmd : bb:mem:del\nargs: {key:  }  An example payload for setting up memory in backbench.  {\n     cmd :  bb:mem:set ,\n         auth : {\n             benchId :  aaaaa0 ,\n             userId :  mybench ,\n             accessKey :  c72d2f3a91b80c1e7fb46f4332383795facd8e99df31b689513c2fa11a699adb \n        },\n         args : {\n         key :  jlo ,\n         value :  one the floor \n    }\n}", 
+            "title": "Deleting Memory"
+        }
+    ]
+}
