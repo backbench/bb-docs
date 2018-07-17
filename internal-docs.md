@@ -32,3 +32,17 @@ Note:
  
 1. The sidebar is necessary (Preferably collapsible sidebar).
 2. You don't need to copy the UI here, take an idea from current layout only.
+
+### Mocked Endpoints:
+
+memory : http://www.mocky.io/v2/5b4dad7c31000055005ebd04
+
+invocation: http://www.mocky.io/v2/5b4dadc831000013115ebd05
+
+requests_dashboard: http://www.mocky.io/v2/5b4dae7431000013115ebd12
+
+activities: http://www.mocky.io/v2/5b4daf3431000055005ebd18
+
+benchList: http://www.mocky.io/v2/5b4daf683100006e0b5ebd1a
+
+dashboard_2: http://www.mocky.io/v2/5b4dafc131000055005ebd20
